@@ -18,6 +18,7 @@ class App extends Component {
   toggleDetails() {
     let getButtonId = document.getElementById('details-button');
     getButtonId.textContent = "Hide Details";
+    
   }
 
 
@@ -25,7 +26,8 @@ class App extends Component {
   fetchUsers = () => {
     fetch('https://randomuser.me/api?results=25')
     .then((res) => { return res.json() })
-    .then((res) => { console.log(res); this.setState( {users: res.results}) })
+    .then((res) => { console.log(res); this.setState( {users: res.results,}) })
+    .then((res) => { this.setState( {details: res.name} )})
     .catch(error => console.log('Parsing failed', error))
   }
 
